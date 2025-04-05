@@ -5,8 +5,12 @@ import google.generativeai as genai
 import argparse
 from collections import Counter
 import re
+from dotenv import load_dotenv
 
 # --- Configuration ---
+# Load environment variables from .env file
+load_dotenv()
+
 # Ensure your Google API Key is set as an environment variable:
 # export GOOGLE_API_KEY="YOUR_API_KEY"
 # Or configure it directly:
