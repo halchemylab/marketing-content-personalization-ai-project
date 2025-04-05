@@ -6,6 +6,7 @@ import argparse
 from collections import Counter
 import re
 from dotenv import load_dotenv
+import time
 
 # --- Configuration ---
 # Load environment variables from .env file
@@ -308,6 +309,9 @@ def main():
 
             # 3a. Construct Prompt
             prompt = generate_few_shot_prompt(segment, analyzed_content, args.content_type)
+
+            # Add a delay to avoid exceeding API quota
+            time.sleep(2)
 
             # 3b. Call LLM API
             snippet = call_gemini_api(prompt)
